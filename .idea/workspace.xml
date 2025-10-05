@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ed62ab2c-e86e-438e-9072-93eeaeb62a39" name="Changes" comment="Configuration de la base de données MySQL et documentation Swagger">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/HospitalManagementSystem/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +74,7 @@
       <workItem from="1759608170149" duration="1225000" />
       <workItem from="1759616923360" duration="400000" />
       <workItem from="1759617606272" duration="778000" />
+      <workItem from="1759661482070" duration="314000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;feat(frontend): initialize React app&quot;">
       <option name="closed" value="true" />
