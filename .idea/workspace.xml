@@ -5,7 +5,48 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ed62ab2c-e86e-438e-9072-93eeaeb62a39" name="Changes" comment="Configuration de la base de données MySQL et documentation Swagger">
+      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/config/DataInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/controller/AuthController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/controller/HealthController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/controller/PatientController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/dto/LoginRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/dto/LoginResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/dto/PatientDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/dto/PatientResponseDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/dto/PatientStatisticsDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/entity/Admin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/entity/Patient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/enums/BloodType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/enums/Gender.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/enums/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/exception/InvalidPatientDataException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/exception/PatientAlreadyExistsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/exception/PatientNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/repository/AdminRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/repository/PatientRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/security/JwtAuthenticationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/service/AdminService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/service/PatientService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/util/JwtUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/HospitalManagementSystem/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/HospitalManagementSystem/HospitalManagementSystemApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/AppApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/integration/Clients.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/patient/api/PatientController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/patient/api/dto/PatientRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/patient/api/dto/PatientResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/patient/domain/Patient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/patient/domain/Sexe.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/patient/repo/PatientRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/patient/service/PatientService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,6 +54,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -23,7 +69,7 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/douniakritet/HMS.git&quot;,
+    &quot;url&quot;: &quot;https://github.com/douniakritet/HMS&quot;,
     &quot;accountId&quot;: &quot;847e0b01-7f74-49cc-82a9-555ec8368146&quot;
   }
 }</component>
@@ -40,21 +86,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/pc/Desktop/HospitalManagementSystem&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "patient",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/pc/eclipse-workspace/WS/HospitalManagementSystem/src/main/java/com/medical",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\pc\eclipse-workspace\WS\HospitalManagementSystem\src\main\java\com\medical" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\pc\eclipse-workspace\WS" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -75,6 +130,10 @@
       <workItem from="1759616923360" duration="400000" />
       <workItem from="1759617606272" duration="778000" />
       <workItem from="1759661482070" duration="314000" />
+      <workItem from="1760536422858" duration="10934000" />
+      <workItem from="1760561723245" duration="3128000" />
+      <workItem from="1760600316481" duration="10000" />
+      <workItem from="1760622717375" duration="6775000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;feat(frontend): initialize React app&quot;">
       <option name="closed" value="true" />

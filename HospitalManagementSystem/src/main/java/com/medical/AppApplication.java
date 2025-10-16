@@ -1,13 +1,13 @@
-package com.medical.HospitalManagementSystem;
+package com.medical;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class HospitalManagementSystemApplication {
+public class AppApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(HospitalManagementSystemApplication.class, args);
+		SpringApplication.run(AppApplication.class, args);
 	}
 
 }
