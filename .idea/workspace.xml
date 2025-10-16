@@ -4,49 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ed62ab2c-e86e-438e-9072-93eeaeb62a39" name="Changes" comment="Configuration de la base de données MySQL et documentation Swagger">
-      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/config/DataInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/controller/AuthController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/controller/HealthController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/controller/PatientController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/dto/LoginRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/dto/LoginResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/dto/PatientDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/dto/PatientResponseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/dto/PatientStatisticsDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/entity/Admin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/entity/Patient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/enums/BloodType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/enums/Gender.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/enums/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/exception/InvalidPatientDataException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/exception/PatientAlreadyExistsException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/exception/PatientNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/repository/AdminRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/repository/PatientRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/security/JwtAuthenticationFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/service/AdminService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/service/PatientService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/util/JwtUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="ed62ab2c-e86e-438e-9072-93eeaeb62a39" name="Changes" comment="feat: implement authentication and improve patient management&#10;&#10;- Add admin and patient login endpoints&#10;- Update patient CRUD operations">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/HospitalManagementSystem/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/HospitalManagementSystem/HospitalManagementSystemApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/AppApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/integration/Clients.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/patient/api/PatientController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/patient/api/dto/PatientRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/patient/api/dto/PatientResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/patient/domain/Patient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/patient/domain/Sexe.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/patient/repo/PatientRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/patient/service/PatientService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/reportWebVitals.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/setupTests.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,22 +63,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "patient",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/pc/eclipse-workspace/WS/HospitalManagementSystem/src/main/java/com/medical",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;patient&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/pc/eclipse-workspace/WS/HospitalManagementSystem/src/main/java/com/medical&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\pc\eclipse-workspace\WS\HospitalManagementSystem\src\main\java\com\medical" />
@@ -133,7 +110,8 @@
       <workItem from="1760536422858" duration="10934000" />
       <workItem from="1760561723245" duration="3128000" />
       <workItem from="1760600316481" duration="10000" />
-      <workItem from="1760622717375" duration="6775000" />
+      <workItem from="1760622717375" duration="7481000" />
+      <workItem from="1760630807026" duration="293000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;feat(frontend): initialize React app&quot;">
       <option name="closed" value="true" />
@@ -143,7 +121,15 @@
       <option name="project" value="LOCAL" />
       <updated>1759607853485</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="feat: implement authentication and improve patient management&#10;&#10;- Add admin and patient login endpoints&#10;- Update patient CRUD operations">
+      <option name="closed" value="true" />
+      <created>1760630131276</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1760630131276</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -152,6 +138,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="&quot;feat(frontend): initialize React app&quot;" />
     <MESSAGE value="Configuration de la base de données MySQL et documentation Swagger" />
-    <option name="LAST_COMMIT_MESSAGE" value="Configuration de la base de données MySQL et documentation Swagger" />
+    <MESSAGE value="feat: implement authentication and improve patient management&#10;&#10;- Add admin and patient login endpoints&#10;- Update patient CRUD operations" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: implement authentication and improve patient management&#10;&#10;- Add admin and patient login endpoints&#10;- Update patient CRUD operations" />
   </component>
 </project>
