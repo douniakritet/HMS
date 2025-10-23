@@ -25,19 +25,19 @@ import java.util.List;
 @CrossOrigin(origins = "*", maxAge = 3600)
 @PreAuthorize("hasRole('ADMIN')")
 public class PatientController {
-    
+
     private static final Logger logger = LoggerFactory.getLogger(PatientController.class);
-    
+
     @Autowired
     private PatientService patientService;
-    
+
     @PostMapping
     public ResponseEntity<PatientResponseDTO> createPatient(@Valid @RequestBody PatientDTO patientDTO) {
         logger.info("Creating new patient with email: {}", patientDTO.getEmail());
         PatientResponseDTO createdPatient = patientService.createPatient(patientDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdPatient);
     }
-    
+
     @GetMapping
     public ResponseEntity<Page<PatientResponseDTO>> getAllPatients(
             @PageableDefault(size = 20, sort = "registrationDate", direction = Sort.Direction.DESC) Pageable pageable) {
@@ -45,14 +45,23 @@ public class PatientController {
         Page<PatientResponseDTO> patients = patientService.getAllPatients(pageable);
         return ResponseEntity.ok(patients);
     }
-    
+
     @GetMapping("/{id}")
+    @PreAuthorize("permitAll()")
     public ResponseEntity<PatientResponseDTO> getPatientById(@PathVariable Long id) {
         logger.info("Fetching patient with ID: {}", id);
         PatientResponseDTO patient = patientService.getPatientById(id);
         return ResponseEntity.ok(patient);
     }
-    
+
+    @GetMapping("/cin/{cin}")
+    @PreAuthorize("permitAll()")
+    public ResponseEntity<PatientResponseDTO> getPatientByCin(@PathVariable String cin) {
+        logger.info("Fetching patient with CIN: {}", cin);
+        PatientResponseDTO patient = patientService.getPatientByCin(cin);
+        return ResponseEntity.ok(patient);
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<PatientResponseDTO> updatePatient(
             @PathVariable Long id,
@@ -61,21 +70,21 @@ public class PatientController {
         PatientResponseDTO updatedPatient = patientService.updatePatient(id, patientDTO);
         return ResponseEntity.ok(updatedPatient);
     }
-    
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deactivatePatient(@PathVariable Long id) {
         logger.info("Deactivating patient with ID: {}", id);
         patientService.deactivatePatient(id);
         return ResponseEntity.noContent().build();
     }
-    
+
     @PatchMapping("/{id}/reactivate")
     public ResponseEntity<Void> reactivatePatient(@PathVariable Long id) {
         logger.info("Reactivating patient with ID: {}", id);
         patientService.reactivatePatient(id);
         return ResponseEntity.ok().build();
     }
-    
+
     @GetMapping("/search")
     public ResponseEntity<Page<PatientResponseDTO>> searchPatients(
             @RequestParam("q") String searchTerm,
@@ -84,14 +93,14 @@ public class PatientController {
         Page<PatientResponseDTO> patients = patientService.searchPatients(searchTerm, pageable);
         return ResponseEntity.ok(patients);
     }
-    
+
     @GetMapping("/blood-type/{type}")
     public ResponseEntity<List<PatientResponseDTO>> getPatientsByBloodType(@PathVariable BloodType type) {
         logger.info("Fetching patients with blood type: {}", type);
         List<PatientResponseDTO> patients = patientService.getPatientsByBloodType(type);
         return ResponseEntity.ok(patients);
     }
-    
+
     @GetMapping("/statistics")
     public ResponseEntity<PatientStatisticsDTO> getPatientStatistics() {
         logger.info("Fetching patient statistics");

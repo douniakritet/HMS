@@ -45,6 +45,11 @@ public class Patient {
     @Column(name = "phone_number", nullable = false)
     private String phoneNumber;
 
+    @NotBlank(message = "CIN is required")
+    @Pattern(regexp = "^[A-Z]{1,2}\\d{1,6}$", message = "Invalid CIN format. Expected format: 1-2 letters followed by 1-6 digits (e.g., AB123456)")
+    @Column(unique = true, nullable = false, length = 20)
+    private String cin;
+
     @NotNull(message = "Date of birth is required")
     @Past(message = "Date of birth must be in the past")
     @Column(name = "date_of_birth", nullable = false)

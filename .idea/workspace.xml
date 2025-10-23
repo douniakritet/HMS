@@ -4,14 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ed62ab2c-e86e-438e-9072-93eeaeb62a39" name="Changes" comment="feat(auth): connect admin login interface to backend&#10;&#10;- Integrate login form with authentication API&#10;- Configure JWT token handling&#10;- Test login functionality">
-      <change afterPath="$PROJECT_DIR$/frontend/src/api/http.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/api/patients.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/types/patient.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/vite-env.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/tailwind.config.js" afterDir="false" />
+    <list default="true" id="ed62ab2c-e86e-438e-9072-93eeaeb62a39" name="Changes" comment="feat(auth): frontend dashboard admin patient">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/enums/Gender.java" beforeDir="false" afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/enums/Gender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/controller/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/controller/PatientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/dto/PatientDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/dto/PatientDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/dto/PatientResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/dto/PatientResponseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/entity/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/entity/Patient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/repository/PatientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/repository/PatientRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/service/PatientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/service/PatientService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/HospitalManagementSystem/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +39,9 @@
     &quot;accountId&quot;: &quot;847e0b01-7f74-49cc-82a9-555ec8368146&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/HospitalManagementSystem/src/main/resources/application.properties" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -102,7 +106,14 @@
       <workItem from="1760600316481" duration="10000" />
       <workItem from="1760622717375" duration="7481000" />
       <workItem from="1760630807026" duration="13946000" />
-      <workItem from="1760811402830" duration="3200000" />
+      <workItem from="1760811402830" duration="4886000" />
+      <workItem from="1760876132441" duration="2037000" />
+      <workItem from="1760879518789" duration="1789000" />
+      <workItem from="1760898120262" duration="470000" />
+      <workItem from="1760898961194" duration="2350000" />
+      <workItem from="1760966724031" duration="6500000" />
+      <workItem from="1761205247505" duration="3750000" />
+      <workItem from="1761246386225" duration="3062000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;feat(frontend): initialize React app&quot;">
       <option name="closed" value="true" />
@@ -128,7 +139,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760631351117</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="feat(auth): frontend dashboard admin patient">
+      <option name="closed" value="true" />
+      <created>1760814828420</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1760814828420</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,6 +158,7 @@
     <MESSAGE value="Configuration de la base de données MySQL et documentation Swagger" />
     <MESSAGE value="feat: implement authentication and improve patient management&#10;&#10;- Add admin and patient login endpoints&#10;- Update patient CRUD operations" />
     <MESSAGE value="feat(auth): connect admin login interface to backend&#10;&#10;- Integrate login form with authentication API&#10;- Configure JWT token handling&#10;- Test login functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(auth): connect admin login interface to backend&#10;&#10;- Integrate login form with authentication API&#10;- Configure JWT token handling&#10;- Test login functionality" />
+    <MESSAGE value="feat(auth): frontend dashboard admin patient" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(auth): frontend dashboard admin patient" />
   </component>
 </project>

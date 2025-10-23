@@ -21,7 +21,11 @@ public class PatientDTO {
     @NotBlank(message = "Last name is required")
     @Size(max = 50, message = "Last name must not exceed 50 characters")
     private String lastName;
-    
+
+    @NotBlank(message = "CIN is required")
+    @Pattern(regexp = "^[A-Z]{1,2}\\d{5,6}$", message = "Invalid CIN format. Expected format: 1-2 letters followed by 5-6 digits (e.g., AB123456)")
+    private String cin;
+
     @NotBlank(message = "Email is required")
     @Email(message = "Please provide a valid email address")
     private String email;

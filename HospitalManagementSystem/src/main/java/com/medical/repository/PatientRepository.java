@@ -15,32 +15,39 @@ import java.util.Optional;
 
 @Repository
 public interface PatientRepository extends JpaRepository<Patient, Long> {
-    
+
     Optional<Patient> findByEmail(String email);
-    
+
     Optional<Patient> findByPhoneNumber(String phoneNumber);
-    
+
+    Optional<Patient> findByCin(String cin);
+
     List<Patient> findByFirstNameAndLastName(String firstName, String lastName);
-    
+
     Page<Patient> findByIsActiveTrue(Pageable pageable);
-    
+
     List<Patient> findByBloodType(BloodType bloodType);
-    
+
     List<Patient> findByRegistrationDateBetween(LocalDateTime start, LocalDateTime end);
-    
+
     long countByIsActiveTrue();
-    
+
     boolean existsByEmailAndIdNot(String email, Long id);
-    
+
     boolean existsByPhoneNumberAndIdNot(String phoneNumber, Long id);
-    
+
+    boolean existsByCinAndIdNot(String cin, Long id);
+
+    boolean existsByCin(String cin);
+
     @Query("SELECT p FROM Patient p WHERE p.isActive = true AND " +
-           "(LOWER(p.firstName) LIKE LOWER(CONCAT('%', :searchTerm, '%')) OR " +
-           "LOWER(p.lastName) LIKE LOWER(CONCAT('%', :searchTerm, '%')) OR " +
-           "LOWER(p.email) LIKE LOWER(CONCAT('%', :searchTerm, '%')) OR " +
-           "p.phoneNumber LIKE CONCAT('%', :searchTerm, '%'))")
+            "(LOWER(p.firstName) LIKE LOWER(CONCAT('%', :searchTerm, '%')) OR " +
+            "LOWER(p.lastName) LIKE LOWER(CONCAT('%', :searchTerm, '%')) OR " +
+            "LOWER(p.email) LIKE LOWER(CONCAT('%', :searchTerm, '%')) OR " +
+            "LOWER(p.cin) LIKE LOWER(CONCAT('%', :searchTerm, '%')) OR " +
+            "p.phoneNumber LIKE CONCAT('%', :searchTerm, '%'))")
     Page<Patient> searchPatients(@Param("searchTerm") String searchTerm, Pageable pageable);
-    
+
     @Query("SELECT COUNT(p) FROM Patient p WHERE p.isActive = true AND p.bloodType = :bloodType")
     long countByBloodType(@Param("bloodType") BloodType bloodType);
 }
