@@ -1,5 +1,5 @@
-package com.medical.HospitalManagementSystem;
-
+package com.doctors.HospitalManagementSystem;
+//medical
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
