@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ed62ab2c-e86e-438e-9072-93eeaeb62a39" name="Changes" comment="feat: Implémentation complète du champ CIN&#10;&#10;Backend:&#10;- Ajout du champ CIN à l'entité Patient avec validation&#10;- Contrainte d'unicité sur le CIN&#10;- Validation format marocain (1-2 lettres + 6 chiffres)&#10;- Méthodes repository pour recherche par CIN&#10;&#10;Frontend:&#10;- Ajout du champ CIN dans les formulaires&#10;- Affichage du CIN dans la liste des patients&#10;- Recherche par CIN&#10;- Validation côté client&quot;">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/HospitalManagementSystem/pom.xml" afterDir="false" />
-    </list>
+    <list default="true" id="ed62ab2c-e86e-438e-9072-93eeaeb62a39" name="Changes" comment="frontend dashboard" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -144,7 +141,7 @@
       <workItem from="1761421647278" duration="36000" />
       <workItem from="1761810924701" duration="1200000" />
       <workItem from="1762523706809" duration="8852000" />
-      <workItem from="1762621290186" duration="43000" />
+      <workItem from="1762621290186" duration="315000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;feat(frontend): initialize React app&quot;">
       <option name="closed" value="true" />
@@ -186,7 +183,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761249818823</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="frontend dashboard">
+      <option name="closed" value="true" />
+      <created>1762621599806</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1762621599806</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,6 +204,7 @@
     <MESSAGE value="feat(auth): connect admin login interface to backend&#10;&#10;- Integrate login form with authentication API&#10;- Configure JWT token handling&#10;- Test login functionality" />
     <MESSAGE value="feat(auth): frontend dashboard admin patient" />
     <MESSAGE value="feat: Implémentation complète du champ CIN&#10;&#10;Backend:&#10;- Ajout du champ CIN à l'entité Patient avec validation&#10;- Contrainte d'unicité sur le CIN&#10;- Validation format marocain (1-2 lettres + 6 chiffres)&#10;- Méthodes repository pour recherche par CIN&#10;&#10;Frontend:&#10;- Ajout du champ CIN dans les formulaires&#10;- Affichage du CIN dans la liste des patients&#10;- Recherche par CIN&#10;- Validation côté client&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Implémentation complète du champ CIN&#10;&#10;Backend:&#10;- Ajout du champ CIN à l'entité Patient avec validation&#10;- Contrainte d'unicité sur le CIN&#10;- Validation format marocain (1-2 lettres + 6 chiffres)&#10;- Méthodes repository pour recherche par CIN&#10;&#10;Frontend:&#10;- Ajout du champ CIN dans les formulaires&#10;- Affichage du CIN dans la liste des patients&#10;- Recherche par CIN&#10;- Validation côté client&quot;" />
+    <MESSAGE value="frontend dashboard" />
+    <option name="LAST_COMMIT_MESSAGE" value="frontend dashboard" />
   </component>
 </project>
