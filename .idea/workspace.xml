@@ -4,7 +4,46 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ed62ab2c-e86e-438e-9072-93eeaeb62a39" name="Changes" comment="frontend dashboard" />
+    <list default="true" id="ed62ab2c-e86e-438e-9072-93eeaeb62a39" name="Changes" comment="frontend dashboard">
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patient-service/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/.gitattributes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/AppApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medical/AppApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/config/DataInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medical/config/DataInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medical/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medical/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/controller/HealthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medical/controller/HealthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/controller/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medical/controller/PatientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/dto/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medical/dto/LoginRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/dto/LoginResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medical/dto/LoginResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/dto/PatientDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medical/dto/PatientDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/dto/PatientResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medical/dto/PatientResponseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/dto/PatientStatisticsDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medical/dto/PatientStatisticsDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/entity/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medical/entity/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/entity/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medical/entity/Patient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/enums/BloodType.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medical/enums/BloodType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/enums/Gender.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medical/enums/Gender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/enums/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medical/enums/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medical/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/exception/InvalidPatientDataException.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medical/exception/InvalidPatientDataException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/exception/PatientAlreadyExistsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medical/exception/PatientAlreadyExistsException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/exception/PatientNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medical/exception/PatientNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/repository/AdminRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medical/repository/AdminRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/repository/PatientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medical/repository/PatientRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/security/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medical/security/JwtAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/service/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medical/service/AdminService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/service/PatientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medical/service/PatientService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/java/com/medical/util/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medical/util/JwtUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HospitalManagementSystem/src/test/java/com/medical/HospitalManagementSystem/HospitalManagementSystemApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/test/java/com/medical/HospitalManagementSystem/HospitalManagementSystemApplicationTests.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,23 +85,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;patient&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/pc/eclipse-workspace/WS/HospitalManagementSystem/src/main/java/com/medical&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\pc\\AppData\\Local\\JetBrains\\IntelliJ IDEA 2025.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "patient",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/pc/eclipse-workspace/WS/HospitalManagementSystem/src/main/java/com/medical",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Users\\pc\\AppData\\Local\\JetBrains\\IntelliJ IDEA 2025.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\pc\eclipse-workspace\WS\HospitalManagementSystem\src\main\java\com\medical" />
