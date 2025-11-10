@@ -1,0 +1,143 @@
+# ============================================
+# Docker Compose - 4 Bases MySQL Séparées
+# Chaque service a son propre conteneur MySQL
+# ============================================
+
+version: '3.8'
+
+services:
+  # ============================================
+  # BASE 1: MySQL Patient (Port 3307)
+  # ============================================
+  mysql-patient:
+    image: mysql:8.0
+    container_name: mysql-patient-db
+    restart: always
+    ports:
+      - "3307:3306"  # Port externe:interne
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: patient_db
+      MYSQL_USER: hospital_user
+      MYSQL_PASSWORD: hospital_pass
+    volumes:
+      - patient_data:/var/lib/mysql
+      - ./init-scripts/patient:/docker-entrypoint-initdb.d
+    networks:
+      - hospital-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  # ============================================
+  # BASE 2: MySQL Médecin (Port 3308)
+  # ============================================
+  mysql-medecin:
+    image: mysql:8.0
+    container_name: mysql-medecin-db
+    restart: always
+    ports:
+      - "3308:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: medecin_db
+      MYSQL_USER: hospital_user
+      MYSQL_PASSWORD: hospital_pass
+    volumes:
+      - medecin_data:/var/lib/mysql
+      - ./init-scripts/medecin:/docker-entrypoint-initdb.d
+    networks:
+      - hospital-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  # ============================================
+  # BASE 3: MySQL Rendez-vous (Port 3309)
+  # ============================================
+  mysql-rendezvous:
+    image: mysql:8.0
+    container_name: mysql-rendezvous-db
+    restart: always
+    ports:
+      - "3309:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: rendezvous_db
+      MYSQL_USER: hospital_user
+      MYSQL_PASSWORD: hospital_pass
+    volumes:
+      - rendezvous_data:/var/lib/mysql
+      - ./init-scripts/rendezvous:/docker-entrypoint-initdb.d
+    networks:
+      - hospital-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  # ============================================
+  # BASE 4: MySQL Facture (Port 3310)
+  # ============================================
+  mysql-facture:
+    image: mysql:8.0
+    container_name: mysql-facture-db
+    restart: always
+    ports:
+      - "3310:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: facture_db
+      MYSQL_USER: hospital_user
+      MYSQL_PASSWORD: hospital_pass
+    volumes:
+      - facture_data:/var/lib/mysql
+      - ./init-scripts/facture:/docker-entrypoint-initdb.d
+    networks:
+      - hospital-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  # ============================================
+  # PHPMYADMIN (Optionnel - Pour gérer les bases)
+  # ============================================
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin
+    restart: always
+    ports:
+      - "8090:80"
+    environment:
+      PMA_ARBITRARY: 1
+      PMA_HOSTS: mysql-patient,mysql-medecin,mysql-rendezvous,mysql-facture
+    networks:
+      - hospital-network
+    depends_on:
+      - mysql-patient
+      - mysql-medecin
+      - mysql-rendezvous
+      - mysql-facture
+
+# ============================================
+# VOLUMES (Persistance des données)
+# ============================================
+volumes:
+  patient_data:
+    driver: local
+  medecin_data:
+    driver: local
+  rendezvous_data:
+    driver: local
+  facture_data:
+    driver: local
+
+# ============================================
+# NETWORK (Communication entre conteneurs)
+# ============================================
+networks:
+  hospital-network:
+    driver: bridge

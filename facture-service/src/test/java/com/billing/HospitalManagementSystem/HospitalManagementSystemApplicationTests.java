@@ -1,4 +1,4 @@
-package com.medical.HospitalManagementSystem;
+package com.billing.HospitalManagementSystem;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
