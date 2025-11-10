@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const useAuth = async () => {
     const token = localStorage.getItem("token");
-    const response = await axios.get("http://localhost:8081/api/auth/me", {
+    const response = await axios.get("http://localhost:8082/api/auth/me", {
         headers: {
             Authorization: `Bearer ${token}`,
         },

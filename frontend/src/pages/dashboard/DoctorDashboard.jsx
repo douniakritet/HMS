@@ -17,7 +17,7 @@ export default function MediConnectDashboard() {
     const [totalPages, setTotalPages] = useState(0);
     const [doctors, setDoctors] = useState([]);
 
-    const API_BASE_URL = 'http://localhost:8081/api/doctors';
+    const API_BASE_URL = 'http://localhost:8082/api/doctors';
 
     const fromApi = (d) => ({
         ...d,

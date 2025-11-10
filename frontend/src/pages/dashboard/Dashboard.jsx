@@ -19,7 +19,7 @@ export default function MediConnectDashboard() {
     const [totalPages, setTotalPages] = useState(0);
     const [patients, setPatients] = useState([]);
 
-    const API_BASE_URL = 'http://localhost:8081/api/patients';
+    const API_BASE_URL = 'http://localhost:8082/api/patients';
 
     const BLOOD_UI_TO_ENUM = {
         'A+': 'A_POSITIVE',  'A-': 'A_NEGATIVE',
