@@ -1,0 +1,281 @@
+/* InvoiceCreator.css */
+
+.invoice-content-wrapper {
+    width: 100%;
+}
+
+.form-container {
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.section-number {
+    width: 35px;
+    height: 35px;
+    background: linear-gradient(135deg, #5b6fd8 0%, #3949ab 100%);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.section-title {
+    color: #3949ab;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    color: #555;
+    font-weight: 500;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.form-group label span {
+    color: #f44336;
+}
+
+.form-group input,
+.form-group select {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.3s;
+    font-family: inherit;
+    background: white;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #5b6fd8;
+    box-shadow: 0 0 0 3px rgba(91, 111, 216, 0.1);
+}
+
+.items-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.items-table thead {
+    background: #f5f5f5;
+}
+
+.items-table th {
+    padding: 12px;
+    text-align: left;
+    color: #555;
+    font-weight: 600;
+    font-size: 13px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.items-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.items-table input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 13px;
+}
+
+.items-table input:focus {
+    outline: none;
+    border-color: #5b6fd8;
+}
+
+.btn-add {
+    background: #5b6fd8;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 15px;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-add:hover {
+    background: #3949ab;
+    transform: translateY(-2px);
+}
+
+.btn-remove {
+    background: #f44336;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.3s;
+    line-height: 1;
+}
+
+.btn-remove:hover {
+    background: #d32f2f;
+}
+
+.total-section {
+    background: linear-gradient(135deg, #5b6fd8 0%, #3949ab 100%);
+    color: white;
+    padding: 20px 25px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.total-section .label {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.total-section .amount {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+    margin-top: 30px;
+}
+
+.btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-cancel {
+    background: #f5f5f5;
+    color: #666;
+}
+
+.btn-cancel:hover {
+    background: #e0e0e0;
+}
+
+.btn-preview {
+    background: #ff9800;
+    color: white;
+}
+
+.btn-preview:hover {
+    background: #f57c00;
+    transform: translateY(-2px);
+}
+
+.btn-save {
+    background: #4caf50;
+    color: white;
+}
+
+.btn-save:hover {
+    background: #388e3c;
+    transform: translateY(-2px);
+}
+
+.payment-toggle {
+    background: #f0f7ff;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #5b6fd8;
+    margin-bottom: 20px;
+}
+
+.toggle-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    color: #3949ab;
+}
+
+.toggle-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #5b6fd8;
+}
+
+@media (max-width: 768px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .items-table {
+        font-size: 12px;
+    }
+
+    .items-table th,
+    .items-table td {
+        padding: 8px 6px;
+    }
+
+    .section-number {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+    }
+
+    .section-title {
+        font-size: 18px;
+    }
+}
