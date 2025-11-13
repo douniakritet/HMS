@@ -17,6 +17,7 @@ export default function MediConnectDashboard() {
     const [success, setSuccess] = useState(null);
     const [error, setError] = useState(null);
     const [searchTerm, setSearchTerm] = useState('');
+    const [searchTermMedecins, setSearchTermMedecins] = useState('');
     const [loading, setLoading] = useState(false);
     const [statistics, setStatistics] = useState(null);
     const [currentPage, setCurrentPage] = useState(0);
@@ -33,6 +34,24 @@ export default function MediConnectDashboard() {
     const API_MEDECIN_URL = 'http://localhost:8082/api/doctors';
     const API_RDV_URL = 'http://localhost:8083/api/rendez-vous';
     const API_BILLING_URL = 'http://localhost:8084/api/billings';
+
+    const [doctorStatistics, setDoctorStatistics] = useState(null);
+
+// Fonction pour récupérer les statistiques médecins
+const fetchDoctorStatistics = async () => {
+    try {
+        const res = await fetch(`${API_MEDECIN_URL}/statistics`, { 
+            headers: getHeaders() 
+        });
+        
+        if (!res.ok) return; // Si erreur HTTP, on sort silencieusement
+        
+        const data = await res.json();
+        setDoctorStatistics(data); // Met à jour le state avec les données
+    } catch {
+        // Ignore les erreurs silencieusement comme dans l'exemple original
+    }
+};
 
     const BLOOD_UI_TO_ENUM = {
         'A+': 'A_POSITIVE',  'A-': 'A_NEGATIVE',
@@ -550,6 +569,66 @@ const openEditMedecinModal = (m) => {
     setShowEditMedecinModal(true);
 };
 
+    const handleSearchMedecins = async (term) => {
+        setSearchTermMedecins(term);
+        if (!term.trim()) {
+            fetchMedecins();
+            return;
+        }
+
+        setLoading(true);
+        setError(null);
+        try {
+            // Vérifiez d'abord si votre backend a un endpoint de recherche pour les médecins
+            const url = `${API_MEDECIN_URL}/search?q=${encodeURIComponent(term)}&page=0&size=20`;
+            console.log('🔍 Recherche médecins URL:', url);
+
+            const res = await fetch(url, { headers: getHeaders() });
+
+            if (res.status === 401) {
+                setError('Session expirée. Veuillez vous reconnecter.');
+                handleLogout();
+                return;
+            }
+
+            if (!res.ok) {
+                // Si l'endpoint de recherche n'existe pas, faites une recherche côté client
+                console.log('Endpoint recherche non disponible, recherche côté client');
+                await fetchMedecins(); // Charge tous les médecins d'abord
+                // Puis filtrez côté client
+                const filtered = medecins.filter(m =>
+                    m.firstName?.toLowerCase().includes(term.toLowerCase()) ||
+                    m.lastName?.toLowerCase().includes(term.toLowerCase()) ||
+                    m.professionalEmail?.toLowerCase().includes(term.toLowerCase()) ||
+                    m.specialization?.toLowerCase().includes(term.toLowerCase()) ||
+                    m.registrationNumber?.toLowerCase().includes(term.toLowerCase())
+                );
+                setMedecins(filtered);
+                return;
+            }
+
+            const data = await res.json();
+            console.log('✅ Résultats recherche médecins:', data);
+
+            const rawMedecins = Array.isArray(data) ? data : (data.content || []);
+            setMedecins(rawMedecins.map(fromMedecinApi));
+
+        } catch (e) {
+            console.error('Erreur recherche médecins:', e);
+            // En cas d'erreur, fallback vers la recherche côté client
+            const filtered = medecins.filter(m =>
+                m.firstName?.toLowerCase().includes(term.toLowerCase()) ||
+                m.lastName?.toLowerCase().includes(term.toLowerCase()) ||
+                m.professionalEmail?.toLowerCase().includes(term.toLowerCase()) ||
+                m.specialization?.toLowerCase().includes(term.toLowerCase()) ||
+                m.registrationNumber?.toLowerCase().includes(term.toLowerCase())
+            );
+            setMedecins(filtered);
+        } finally {
+            setLoading(false);
+        }
+    };
+
 const handleAddFacture = async () => {
     if (!newFacture.patientId || !newFacture.medecinId || !newFacture.rendezVousId || !newFacture.amount) {
         setError('Veuillez remplir tous les champs obligatoires');
@@ -612,8 +691,8 @@ const renderDashboard = () => (
             <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-xl shadow-lg p-6 text-white transform hover:scale-105 transition-transform">
                 <div className="flex items-center justify-between">
                     <div>
-                        <p className="text-green-100 text-sm font-medium uppercase tracking-wide">Patients Actifs</p>
-                        <p className="text-4xl font-bold mt-2">{statistics?.activePatients ?? patients.filter(p => p.isActive).length}</p>
+                        <p className="text-green-100 text-sm font-medium uppercase tracking-wide">Total Médecin</p>
+                        <p className="text-4xl font-bold mt-2">{statistics?.activemedecins ?? medecins.filter(p => p.isActive).length}</p>
                         <div className="flex items-center mt-2 text-green-100">
                             <CheckCircle className="w-4 h-4 mr-1" />
                             <span className="text-sm">Statut vérifié</span>
@@ -1056,7 +1135,10 @@ const renderDoctorsList = () => (
             <div className="relative">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                 <input
-                    type="text" placeholder="Rechercher par nom, email ou spécialité..."
+                    type="text"
+                    placeholder="Rechercher par nom, email ou spécialité..."
+                    value={searchTermMedecins}
+                    onChange={(e) => handleSearchMedecins(e.target.value)}
                     className="w-full pl-10 pr-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
                 />
             </div>
