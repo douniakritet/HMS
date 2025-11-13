@@ -18,13 +18,15 @@ services:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot"]
       interval: 10s
       timeout: 10s
-      retries: 10
-      start_period: 60s
+      retries: 15
+      start_period: 90s
 
   # Base de données pour le service doctors
   doctor-db:
     image: mysql:8.0
     container_name: doctor-db
+    ports:
+      - "3307:3306"
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: doctor_db
@@ -38,13 +40,15 @@ services:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot"]
       interval: 10s
       timeout: 10s
-      retries: 10
-      start_period: 60s
+      retries: 15
+      start_period: 90s
 
   # Base de données pour le service rendezvous
   rendezvous-db:
     image: mysql:8.0
     container_name: rendezvous-db
+    ports:
+      - "3308:3306"
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: rendezvous_db
@@ -58,13 +62,15 @@ services:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot"]
       interval: 10s
       timeout: 10s
-      retries: 10
-      start_period: 60s
+      retries: 15
+      start_period: 90s
 
   # Base de données pour le service facture
   facture-db:
     image: mysql:8.0
     container_name: facture-db
+    ports:
+      - "3309:3306"
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: facture_db
@@ -78,8 +84,8 @@ services:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot"]
       interval: 10s
       timeout: 10s
-      retries: 10
-      start_period: 60s
+      retries: 15
+      start_period: 90s
 
   # Service Patients
   patients-service:
@@ -100,12 +106,6 @@ services:
     networks:
       - hospital-network
     restart: on-failure
-    healthcheck:
-      test: ["CMD", "wget", "--spider", "--quiet", "http://localhost:8081/actuator/health"]
-      interval: 30s
-      timeout: 10s
-      retries: 5
-      start_period: 90s
 
   # Service Doctors
   doctor-service:
@@ -126,12 +126,6 @@ services:
     networks:
       - hospital-network
     restart: on-failure
-    healthcheck:
-      test: ["CMD", "wget", "--spider", "--quiet", "http://localhost:8082/actuator/health"]
-      interval: 30s
-      timeout: 10s
-      retries: 5
-      start_period: 90s
 
   # Service Rendez-vous
   rendezvous-service:
@@ -152,12 +146,6 @@ services:
     networks:
       - hospital-network
     restart: on-failure
-    healthcheck:
-      test: ["CMD", "wget", "--spider", "--quiet", "http://localhost:8083/actuator/health"]
-      interval: 30s
-      timeout: 10s
-      retries: 5
-      start_period: 90s
 
   # Service Facture
   facture-service:
@@ -178,12 +166,6 @@ services:
     networks:
       - hospital-network
     restart: on-failure
-    healthcheck:
-      test: ["CMD", "wget", "--spider", "--quiet", "http://localhost:8084/actuator/health"]
-      interval: 30s
-      timeout: 10s
-      retries: 5
-      start_period: 90s
 
   # PHPMyAdmin
   phpmyadmin:

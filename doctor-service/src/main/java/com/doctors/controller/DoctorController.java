@@ -20,7 +20,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/doctors")
 @CrossOrigin(origins = "*", maxAge = 3600)
-@PreAuthorize("hasRole('ADMIN')")
+//@PreAuthorize("hasRole('ADMIN')")
 public class DoctorController {
     private static final Logger logger = LoggerFactory.getLogger(DoctorController.class);
 
@@ -38,9 +38,17 @@ public class DoctorController {
     // ✅ Lister tous les médecins (pagination)
     @GetMapping
     public ResponseEntity<Page<DoctorResponseDTO>> getAllDoctors(
-            @PageableDefault(size = 20, sort = "registrationDate", direction = Sort.Direction.DESC) Pageable pageable) {
+            @PageableDefault(size = 20, sort = "createdAt", direction = Sort.Direction.DESC) Pageable pageable) {
         logger.info("Fetching all doctors with pagination: {}", pageable);
         Page<DoctorResponseDTO> doctors = doctorService.getAllDoctors(pageable);
+        return ResponseEntity.ok(doctors);
+    }
+    @GetMapping("/search")
+    public ResponseEntity<Page<DoctorResponseDTO>> searchDoctors(
+            @RequestParam("q") String searchTerm,
+            @PageableDefault(size = 20, sort = "createdAt", direction = Sort.Direction.DESC) Pageable pageable) {
+        logger.info("Searching doctors with term: {}", searchTerm);
+        Page<DoctorResponseDTO> doctors = doctorService.searchDoctors(searchTerm, pageable);
         return ResponseEntity.ok(doctors);
     }
 
