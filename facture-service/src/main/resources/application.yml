@@ -1,0 +1,11 @@
+server:
+  port: 8084
+
+# URLs des autres microservices
+microservices:
+  patient-service:
+    url: http://localhost:8081
+  doctor-service:
+    url: http://localhost:8082
+  rendezvous-service:
+    url: http://localhost:8083
