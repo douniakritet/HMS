@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ============================================
 # Docker Compose - 4 Bases MySQL Séparées
 # Chaque service a son propre conteneur MySQL
@@ -141,3 +142,201 @@ volumes:
 networks:
   hospital-network:
     driver: bridge
+=======
+services:
+  # Base de données pour le service patients
+  patients-db:
+    image: mysql:8.0
+    container_name: patients-db
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: patients_db
+      MYSQL_USER: patient_user
+      MYSQL_PASSWORD: patient_password
+    volumes:
+      - patients_data:/var/lib/mysql
+    networks:
+      - hospital-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot"]
+      interval: 10s
+      timeout: 10s
+      retries: 15
+      start_period: 90s
+
+  # Base de données pour le service doctors
+  doctor-db:
+    image: mysql:8.0
+    container_name: doctor-db
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: doctor_db
+      MYSQL_USER: doctor_user
+      MYSQL_PASSWORD: doctor_password
+    volumes:
+      - doctor_data:/var/lib/mysql
+    networks:
+      - hospital-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot"]
+      interval: 10s
+      timeout: 10s
+      retries: 15
+      start_period: 90s
+
+  # Base de données pour le service rendezvous
+  rendezvous-db:
+    image: mysql:8.0
+    container_name: rendezvous-db
+    ports:
+      - "3308:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: rendezvous_db
+      MYSQL_USER: rendezvous_user
+      MYSQL_PASSWORD: rendezvous_password
+    volumes:
+      - rendezvous_data:/var/lib/mysql
+    networks:
+      - hospital-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot"]
+      interval: 10s
+      timeout: 10s
+      retries: 15
+      start_period: 90s
+
+  # Base de données pour le service facture
+  facture-db:
+    image: mysql:8.0
+    container_name: facture-db
+    ports:
+      - "3309:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: facture_db
+      MYSQL_USER: facture_user
+      MYSQL_PASSWORD: facture_password
+    volumes:
+      - facture_data:/var/lib/mysql
+    networks:
+      - hospital-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot"]
+      interval: 10s
+      timeout: 10s
+      retries: 15
+      start_period: 90s
+
+  # Service Patients
+  patients-service:
+    build:
+      context: ./patient-service
+      dockerfile: Dockerfile
+    container_name: patients-service
+    depends_on:
+      patients-db:
+        condition: service_healthy
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://patients-db:3306/patients_db?useSSL=false&allowPublicKeyRetrieval=true
+      - SPRING_DATASOURCE_USERNAME=patient_user
+      - SPRING_DATASOURCE_PASSWORD=patient_password
+      - SERVER_PORT=8081
+    ports:
+      - "8081:8081"
+    networks:
+      - hospital-network
+    restart: on-failure
+
+  # Service Doctors
+  doctor-service:
+    build:
+      context: ./doctor-service
+      dockerfile: Dockerfile
+    container_name: doctor-service
+    depends_on:
+      doctor-db:
+        condition: service_healthy
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://doctor-db:3306/doctor_db?useSSL=false&allowPublicKeyRetrieval=true
+      - SPRING_DATASOURCE_USERNAME=doctor_user
+      - SPRING_DATASOURCE_PASSWORD=doctor_password
+      - SERVER_PORT=8082
+    ports:
+      - "8082:8082"
+    networks:
+      - hospital-network
+    restart: on-failure
+
+  # Service Rendez-vous
+  rendezvous-service:
+    build:
+      context: ./rendezvous-service
+      dockerfile: Dockerfile
+    container_name: rendezvous-service
+    depends_on:
+      rendezvous-db:
+        condition: service_healthy
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://rendezvous-db:3306/rendezvous_db?useSSL=false&allowPublicKeyRetrieval=true
+      - SPRING_DATASOURCE_USERNAME=rendezvous_user
+      - SPRING_DATASOURCE_PASSWORD=rendezvous_password
+      - SERVER_PORT=8083
+    ports:
+      - "8083:8083"
+    networks:
+      - hospital-network
+    restart: on-failure
+
+  # Service Facture
+  facture-service:
+    build:
+      context: ./facture-service
+      dockerfile: Dockerfile
+    container_name: facture-service
+    depends_on:
+      facture-db:
+        condition: service_healthy
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://facture-db:3306/facture_db?useSSL=false&allowPublicKeyRetrieval=true
+      - SPRING_DATASOURCE_USERNAME=facture_user
+      - SPRING_DATASOURCE_PASSWORD=facture_password
+      - SERVER_PORT=8084
+    ports:
+      - "8084:8084"
+    networks:
+      - hospital-network
+    restart: on-failure
+
+  # PHPMyAdmin
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: phpmyadmin
+    depends_on:
+      - patients-db
+      - doctor-db
+      - rendezvous-db
+      - facture-db
+    environment:
+      PMA_ARBITRARY: 1
+      PMA_HOSTS: patients-db,doctor-db,rendezvous-db,facture-db
+    ports:
+      - "8080:80"
+    networks:
+      - hospital-network
+    restart: unless-stopped
+
+networks:
+  hospital-network:
+    driver: bridge
+
+volumes:
+  patients_data:
+  doctor_data:
+  rendezvous_data:
+  facture_data:
+>>>>>>> main
