@@ -8,7 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/rendezvous")
-@CrossOrigin(origins = "http://localhost:8083") // ton frontend React
+@CrossOrigin(origins = {"http://localhost:5176", "http://localhost:8083", "http://localhost:3000", "http://localhost:5173", "*"})
 public class RendezVousController {
 
     private final RendezVousService service;
