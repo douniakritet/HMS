@@ -5,7 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ed62ab2c-e86e-438e-9072-93eeaeb62a39" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/src/api/doctors.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/api/rendezvous.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/ui/RendezVousFilters.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/ui/RendezVousModal.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/ui/RendezVousStats.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/ui/RendezVousTable.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/dashboard/DoctorDashboard.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/dashboard/RendezVous.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/types/rendezvous.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medical/config/CorsConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doctor-service/src/main/java/com/doctors/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/doctor-service/src/main/java/com/doctors/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doctor-service/src/main/java/com/doctors/controller/DoctorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/doctor-service/src/main/java/com/doctors/controller/DoctorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doctor-service/src/main/java/com/doctors/entity/Doctor.java" beforeDir="false" afterPath="$PROJECT_DIR$/doctor-service/src/main/java/com/doctors/entity/Doctor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rendezvous-service/src/main/java/com/medical/controller/PatientController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rendezvous-service/src/main/java/com/medical/controller/RendezVousController.java" beforeDir="false" afterPath="$PROJECT_DIR$/rendezvous-service/src/main/java/com/medical/controller/RendezVousController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rendezvous-service/src/main/java/com/medical/dto/PatientDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rendezvous-service/src/main/java/com/medical/dto/PatientResponseDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rendezvous-service/src/main/java/com/medical/dto/PatientStatisticsDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rendezvous-service/src/main/java/com/medical/entity/Patient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rendezvous-service/src/main/java/com/medical/repository/PatientRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rendezvous-service/src/main/java/com/medical/service/PatientService.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,12 +52,12 @@
     &quot;assignee&quot;: &quot;douniakritet&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/douniakritet/HMS&quot;,
-    &quot;accountId&quot;: &quot;847e0b01-7f74-49cc-82a9-555ec8368146&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/douniakritet/HMS.git",
+    "accountId": "a78798fe-6b98-425e-a368-95c2e4080dee"
   }
-}</component>
+}]]></component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -50,7 +76,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "billing",
+    "git-widget-placeholder": "Merging billing",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/pc/eclipse-workspace/WS/HospitalManagementSystem/src/main/java/com/medical",
     "node.js.detected.package.eslint": "true",
@@ -60,6 +86,11 @@
     "nodejs_package_manager_path": "npm",
     "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2025.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
@@ -97,6 +128,7 @@
       <workItem from="1760622717375" duration="7481000" />
       <workItem from="1760630807026" duration="13946000" />
       <workItem from="1760811402830" duration="3200000" />
+      <workItem from="1763190477163" duration="790000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;feat(frontend): initialize React app&quot;">
       <option name="closed" value="true" />

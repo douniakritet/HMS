@@ -36,8 +36,9 @@ public class Doctor {
     @Column(nullable = false)
     private Gender gender;
 
+    @NotNull(message = "La date de naissance est obligatoire")
     @Past(message = "La date de naissance doit être dans le passé")
-    @Column(name = "date_of_birth")
+    @Column(name = "date_of_birth", nullable = false)
     private LocalDate dateOfBirth;
 
     @NotBlank(message = "L'email professionnel est obligatoire")
