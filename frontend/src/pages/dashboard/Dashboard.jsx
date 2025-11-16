@@ -2,11 +2,9 @@ import React, { useState, useEffect } from 'react';
 import {
     Activity, Users, Calendar, Bell, Search, Menu, X, Settings, LogOut, Home,
     UserPlus, Edit, Trash2, List, BarChart3, AlertCircle, CheckCircle, Stethoscope,
-    Loader, ChevronDown, ChevronRight, Clock, TrendingUp, DollarSign,
-    FileText, Heart, User
+    Loader, ChevronDown, ChevronRight, Clock, TrendingUp, TrendingDown, DollarSign,
+    FileText, Phone, Mail, MapPin, Heart, Droplet, User, Building
 } from 'lucide-react';
-import RendezVous from './RendezVous';
-import RendezVousForm from './RendezVousForm';
 
 export default function MediConnectDashboard() {
     const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -23,9 +21,6 @@ export default function MediConnectDashboard() {
     const [totalPages, setTotalPages] = useState(0);
     const [patients, setPatients] = useState([]);
     const [medecins, setMedecins] = useState([]);
-    const [filterType, setFilterType] = useState('all'); // 'all', 'patient', 'medecin'
-    const [selectedFilterPatient, setSelectedFilterPatient] = useState('');
-    const [selectedFilterMedecin, setSelectedFilterMedecin] = useState('');
     const [rendezvous, setRendezvous] = useState([]);
     const [newFacture, setNewFacture] = useState({
         patientId: '', medecinId: '', rendezVousId: '', amount: '', description: '',
@@ -150,7 +145,7 @@ export default function MediConnectDashboard() {
     useEffect(() => {
         fetchPatients();
         fetchStatistics();
-        if (activeMenu === 'add-invoice' || activeMenu === 'add-appointment' || activeMenu === 'appointments-list') {
+        if (activeMenu === 'add-invoice') {
             fetchMedecins();
             fetchRendezvous();
         }
@@ -341,17 +336,6 @@ export default function MediConnectDashboard() {
     const openEditModal = (p) => {
         setSelectedPatient(fromApi(p));
         setShowEditModal(true);
-    };
-    const getFilteredRendezvous = () => {
-        let filtered = [...rendezvous];
-
-        if (filterType === 'patient' && selectedFilterPatient) {
-            filtered = filtered.filter(r => r.patientId === parseInt(selectedFilterPatient));
-        } else if (filterType === 'medecin' && selectedFilterMedecin) {
-            filtered = filtered.filter(r => r.medecinId === parseInt(selectedFilterMedecin));
-        }
-
-        return filtered;
     };
 
     const handleAddFacture = async () => {
@@ -845,210 +829,6 @@ export default function MediConnectDashboard() {
         </div>
     );
 
-    const renderAppointmentsList = () => {
-        const filteredRdv = getFilteredRendezvous();
-
-        return (
-            <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
-                <div className="flex items-center justify-between mb-6">
-                    <h3 className="text-lg font-semibold text-gray-800">Liste des Rendez-vous</h3>
-                    <button
-                        onClick={() => setActiveMenu('add-appointment')}
-                        className="bg-blue-600 text-white px-5 py-2.5 rounded-lg hover:bg-blue-700 flex items-center space-x-2 shadow-md transition-all">
-                        <Calendar className="w-4 h-4" />
-                        <span className="font-medium">Nouveau RDV</span>
-                    </button>
-                </div>
-
-                {/* Filtres */}
-                <div className="mb-6 bg-gray-50 p-4 rounded-lg border border-gray-200">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        {/* Type de filtre */}
-                        <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                <Search className="w-4 h-4 inline mr-2" />
-                                Filtrer par
-                            </label>
-                            <select
-                                value={filterType}
-                                onChange={(e) => {
-                                    setFilterType(e.target.value);
-                                    setSelectedFilterPatient('');
-                                    setSelectedFilterMedecin('');
-                                }}
-                                className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
-                            >
-                                <option value="all">Tous les rendez-vous</option>
-                                <option value="patient">Par Patient</option>
-                                <option value="medecin">Par Médecin</option>
-                            </select>
-                        </div>
-
-                        {/* Filtre Patient */}
-                        {filterType === 'patient' && (
-                            <div>
-                                <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                    <User className="w-4 h-4 inline mr-2" />
-                                    Patient
-                                </label>
-                                <select
-                                    value={selectedFilterPatient}
-                                    onChange={(e) => setSelectedFilterPatient(e.target.value)}
-                                    className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
-                                >
-                                    <option value="">Sélectionner un patient</option>
-                                    {patients.map(p => (
-                                        <option key={p.id} value={p.id}>
-                                            {p.firstName} {p.lastName} - {p.cin}
-                                        </option>
-                                    ))}
-                                </select>
-                            </div>
-                        )}
-
-                        {/* Filtre Médecin */}
-                        {filterType === 'medecin' && (
-                            <div>
-                                <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                    <Stethoscope className="w-4 h-4 inline mr-2" />
-                                    Médecin
-                                </label>
-                                <select
-                                    value={selectedFilterMedecin}
-                                    onChange={(e) => setSelectedFilterMedecin(e.target.value)}
-                                    className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
-                                >
-                                    <option value="">Sélectionner un médecin</option>
-                                    {medecins.map(m => (
-                                        <option key={m.id} value={m.id}>
-                                            Dr. {m.nom} {m.prenom} - {m.specialite}
-                                        </option>
-                                    ))}
-                                </select>
-                            </div>
-                        )}
-
-                        {/* Bouton Réinitialiser */}
-                        {filterType !== 'all' && (
-                            <div className="flex items-end">
-                                <button
-                                    onClick={() => {
-                                        setFilterType('all');
-                                        setSelectedFilterPatient('');
-                                        setSelectedFilterMedecin('');
-                                    }}
-                                    className="w-full px-4 py-2.5 border-2 border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium"
-                                >
-                                    Réinitialiser
-                                </button>
-                            </div>
-                        )}
-                    </div>
-
-                    {/* Résumé du filtre */}
-                    {filterType !== 'all' && (selectedFilterPatient || selectedFilterMedecin) && (
-                        <div className="mt-3 pt-3 border-t border-gray-200">
-                            <p className="text-sm text-gray-600">
-                                <strong>Filtrage actif :</strong> {filteredRdv.length} rendez-vous trouvé(s)
-                                {filterType === 'patient' && selectedFilterPatient && (
-                                    <span> pour {patients.find(p => p.id === parseInt(selectedFilterPatient))?.firstName} {patients.find(p => p.id === parseInt(selectedFilterPatient))?.lastName}</span>
-                                )}
-                                {filterType === 'medecin' && selectedFilterMedecin && (
-                                    <span> avec Dr. {medecins.find(m => m.id === parseInt(selectedFilterMedecin))?.nom} {medecins.find(m => m.id === parseInt(selectedFilterMedecin))?.prenom}</span>
-                                )}
-                            </p>
-                        </div>
-                    )}
-                </div>
-
-                {/* Tableau */}
-                <div className="overflow-x-auto">
-                    <table className="w-full">
-                        <thead className="bg-gradient-to-r from-gray-50 to-gray-100">
-                        <tr>
-                            {['Patient', 'Médecin', 'Date', 'Heure', 'Type', 'Statut', 'Actions'].map(h => (
-                                <th key={h} className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase">{h}</th>
-                            ))}
-                        </tr>
-                        </thead>
-                        <tbody className="divide-y divide-gray-200">
-                        {loading ? (
-                            <tr>
-                                <td colSpan="7" className="px-6 py-12 text-center">
-                                    <Loader className="w-8 h-8 text-blue-600 animate-spin mx-auto" />
-                                    <p className="text-gray-500 mt-2">Chargement...</p>
-                                </td>
-                            </tr>
-                        ) : filteredRdv.length === 0 ? (
-                            <tr>
-                                <td colSpan="7" className="px-6 py-12 text-center">
-                                    <Users className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-                                    <p className="text-gray-500 text-lg">
-                                        {filterType !== 'all' ? 'Aucun rendez-vous trouvé avec ce filtre' : 'Aucun rendez-vous trouvé'}
-                                    </p>
-                                </td>
-                            </tr>
-                        ) : (
-                            filteredRdv.map(r => {
-                                const patient = patients.find(p => p.id === r.patientId) || {};
-                                const medecin = medecins.find(m => m.id === r.medecinId) || {};
-                                return (
-                                    <tr key={r.id} className="hover:bg-blue-50 transition-colors">
-                                        <td className="px-6 py-4">
-                                            <div className="flex items-center space-x-3">
-                                                <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-md">
-                                                    {patient.firstName?.charAt(0)}{patient.lastName?.charAt(0)}
-                                                </div>
-                                                <div>
-                                                    <p className="font-semibold text-gray-800">{patient.firstName} {patient.lastName}</p>
-                                                    <p className="text-sm text-gray-500">{patient.email}</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td className="px-6 py-4">
-                                            <div className="flex items-center space-x-3">
-                                                <div className="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-md">
-                                                    {medecin.nom?.charAt(0)}{medecin.prenom?.charAt(0)}
-                                                </div>
-                                                <div>
-                                                    <p className="font-semibold text-gray-800">Dr. {medecin.nom} {medecin.prenom}</p>
-                                                    <p className="text-sm text-gray-500">{medecin.specialite}</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td className="px-6 py-4 text-gray-700 font-medium">{formatDate(r.dateRendezVous)}</td>
-                                        <td className="px-6 py-4 text-gray-700 font-medium">{new Date(r.dateRendezVous).toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' })}</td>
-                                        <td className="px-6 py-4">
-                                        <span className={`px-3 py-1 text-xs font-semibold rounded-full ${r.type === 'Consultation' ? 'bg-green-100 text-green-800' : 'bg-blue-100 text-blue-800'}`}>
-                                          {r.type}
-                                        </span>
-                                        </td>
-                                        <td className="px-6 py-4">
-                                        <span className={`px-3 py-1 text-xs font-semibold rounded-full ${r.status === 'confirmed' ? 'bg-green-100 text-green-800' : r.status === 'waiting' ? 'bg-orange-100 text-orange-800' : 'bg-red-100 text-red-800'}`}>
-                                          {r.status === 'confirmed' ? 'Confirmé' : r.status === 'waiting' ? 'En Attente' : 'Annulé'}
-                                        </span>
-                                        </td>
-                                        <td className="px-6 py-4">
-                                            <div className="flex space-x-2">
-                                                <button onClick={() => setActiveMenu('add-appointment')} className="text-blue-600 hover:text-blue-800 p-2 hover:bg-blue-50 rounded-lg transition-colors" title="Modifier">
-                                                    <Edit className="w-5 h-5" />
-                                                </button>
-                                                <button onClick={() => handleDeletePatient(r.id)} className="text-red-600 hover:text-red-800 p-2 hover:bg-red-50 rounded-lg transition-colors" title="Annuler">
-                                                    <Trash2 className="w-5 h-5" />
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                );
-                            })
-                        )}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        );
-    };
-
     return (
         <div className="flex h-screen bg-gradient-to-br from-blue-50 via-gray-50 to-purple-50">
             <aside className={`${sidebarOpen ? 'w-64' : 'w-20'} bg-white shadow-xl transition-all duration-300 flex flex-col border-r border-gray-200`}>
@@ -1210,19 +990,20 @@ export default function MediConnectDashboard() {
                         </div>
                     )}
 
-
                     {/* Rendez-vous */}
-                    {(activeMenu === 'appointments-list' || activeMenu === 'add-appointment') && (
-                        activeMenu === 'add-appointment' ? (
-                            <RendezVousForm
-                                patients={patients.map(p => ({ idPatient: p.id ?? p.idPatient ?? 0, prenom: p.firstName ?? p.prenom ?? '', nom: p.lastName ?? p.nom ?? '', email: p.email, phone: p.phoneNumber ?? p.phone }))}
-                                medecins={medecins.map(m => ({ idMedecin: m.id ?? m.idMedecin ?? 0, nom: m.nom ?? m.lastName ?? '', prenom: m.prenom ?? m.firstName ?? '', specialite: m.specialite ?? m.speciality ?? '' }))}
-                                onCreated={async () => { await fetchRendezvous(); setActiveMenu('appointments-list'); }}
-                                onCancel={() => setActiveMenu('appointments-list')}
-                            />
-                        ) : (
-                            renderAppointmentsList()
-                        )
+                    {activeMenu === 'appointments-list' && (
+                        <div className="bg-white rounded-xl shadow-md p-8 border border-gray-100 text-center">
+                            <Calendar className="w-16 h-16 text-gray-300 mx-auto mb-4" />
+                            <h2 className="text-xl font-semibold text-gray-800">Liste des Rendez-vous</h2>
+                            <p className="text-gray-500 mt-2">Module en cours de développement...</p>
+                        </div>
+                    )}
+                    {activeMenu === 'add-appointment' && (
+                        <div className="bg-white rounded-xl shadow-md p-8 border border-gray-100 text-center">
+                            <Calendar className="w-16 h-16 text-gray-300 mx-auto mb-4" />
+                            <h2 className="text-xl font-semibold text-gray-800">Nouveau Rendez-vous</h2>
+                            <p className="text-gray-500 mt-2">Module en cours de développement...</p>
+                        </div>
                     )}
 
                     {/* Facturation */}
@@ -1593,4 +1374,3 @@ export default function MediConnectDashboard() {
         </div>
     );
 }
-
