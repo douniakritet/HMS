@@ -8,7 +8,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/rendezvous")
-@CrossOrigin(origins = {"http://localhost:5176", "http://localhost:8083", "http://localhost:3000", "http://localhost:5173", "*"})
+@CrossOrigin(origins = {
+        "http://localhost:5174", // your current frontend
+        "http://localhost:5173",
+        "http://localhost:3000"
+})
 public class RendezVousController {
 
     private final RendezVousService service;

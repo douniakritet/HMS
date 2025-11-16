@@ -19,7 +19,11 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/auth")
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(
+        origins = "http://localhost:5174",  // frontend port
+        allowCredentials = "true",
+        maxAge = 3600
+)
 public class AuthController {
     
     private static final Logger logger = LoggerFactory.getLogger(AuthController.class);
